@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.app {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.calculate-button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #16a34a;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.calculate-button:hover {
+  background-color: #15803d;
+}
+
+.result-area {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 4px;
+  min-height: 3rem;
+}
+
+.result-area p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.result-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.error {
+  color: #dc2626;
+}

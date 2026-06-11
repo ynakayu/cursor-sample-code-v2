@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今日の運勢ガチャ</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 40px 20px;
+      background: linear-gradient(180deg, #fff5e6 0%, #ffe4f0 100%);
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #5c2d82;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 32px;
+    }
+
+    #gacha-machine {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 24px;
+      background: linear-gradient(145deg, #ff6b9d, #c44569);
+      border-radius: 24px;
+      border: 6px solid #fff;
+      box-shadow: 0 8px 24px rgba(92, 45, 130, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    #gacha-machine::before {
+      content: "?";
+      font-size: 72px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    #gacha-machine.is-spinning {
+      animation: shake 0.15s ease-in-out infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(-3deg) scale(1); }
+      50% { transform: rotate(3deg) scale(1.05); }
+      100% { transform: rotate(-3deg) scale(1); }
+    }
+
+    #fortune-display {
+      font-size: 2.5rem;
+      font-weight: bold;
+      min-height: 80px;
+      margin: 16px 0;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    #fortune-display.is-spinning {
+      color: #888;
+      animation: blink 0.2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    #fortune-display.result-daikichi { color: #c41e3a; }
+    #fortune-display.result-chukichi { color: #e85d04; }
+    #fortune-display.result-shokichi { color: #f48c06; }
+    #fortune-display.result-kichi { color: #2d6a4f; }
+    #fortune-display.result-suekichi { color: #40916c; }
+    #fortune-display.result-kyo { color: #495057; }
+    #fortune-display.result-daikyo { color: #212529; }
+
+    #fortune-message {
+      font-size: 1.1rem;
+      color: #555;
+      min-height: 48px;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    #gacha-button {
+      font-size: 1.2rem;
+      padding: 14px 32px;
+      background: linear-gradient(145deg, #9b5de5, #5c2d82);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(92, 45, 130, 0.4);
+    }
+
+    #gacha-button:hover:not(:disabled) {
+      transform: scale(1.03);
+    }
+
+    #gacha-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>今日の運勢ガチャ</h1>
+  <p class="subtitle">ボタンを押して、今日の運勢を占いましょう</p>
+
+  <div id="gacha-machine" aria-hidden="true"></div>
+
+  <p id="fortune-display">？</p>
+  <p id="fortune-message">「ガチャを回す」を押してください</p>
+
+  <button type="button" id="gacha-button">ガチャを回す</button>
+
+  <script src="main.js"></script>
+</body>
+</html>

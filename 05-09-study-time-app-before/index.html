@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>勉強時間トラッカー</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <h1 class="header__title">勉強時間トラッカー</h1>
+        <p class="header__subtitle">タイマーで計測し、カレンダーで振り返る</p>
+      </header>
+
+      <div class="layout">
+        <section class="panel" aria-labelledby="timer-heading">
+          <h2 id="timer-heading" class="panel__title">勉強タイマー</h2>
+          <p
+            id="timerDisplay"
+            class="timer-display"
+            role="timer"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            00:00:00
+          </p>
+          <p id="timerStatus" class="timer-status">停止中</p>
+          <div class="btn-row">
+            <button type="button" id="startBtn" class="primary">開始</button>
+            <button type="button" id="pauseBtn" disabled>一時停止</button>
+            <button type="button" id="resumeBtn" disabled>再開</button>
+            <button type="button" id="stopBtn" class="danger" disabled>停止して記録</button>
+          </div>
+
+          <div class="field-grid" id="studyFields">
+            <label>
+              科目
+              <input type="text" id="subjectInput" placeholder="例: 数学" autocomplete="off" />
+            </label>
+            <label>
+              トピック
+              <input type="text" id="topicInput" placeholder="例: 微分積分" autocomplete="off" />
+            </label>
+            <label>
+              メモ
+              <textarea id="notesInput" placeholder="自由メモ" rows="2"></textarea>
+            </label>
+          </div>
+
+          <form id="manualForm" class="manual-form">
+            <h3 class="manual-form__title">手動で記録</h3>
+            <div class="field-grid">
+              <label>
+                日付
+                <input type="date" id="manualDateInput" required />
+              </label>
+              <label>
+                勉強時間（分）
+                <input type="number" id="manualMinutesInput" min="1" max="1440" value="30" required />
+              </label>
+            </div>
+            <button type="submit" class="primary" style="margin-top: 0.75rem; width: 100%">
+              記録する
+            </button>
+          </form>
+        </section>
+
+        <section class="panel" aria-labelledby="calendar-heading">
+          <h2 id="calendar-heading" class="panel__title">カレンダー</h2>
+          <div class="calendar-header">
+            <button type="button" id="prevMonthBtn" aria-label="前の月">←</button>
+            <h3 id="calendarMonthLabel"></h3>
+            <button type="button" id="nextMonthBtn" aria-label="次の月">→</button>
+          </div>
+          <div class="calendar-weekdays" aria-hidden="true">
+            <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
+          </div>
+          <div id="calendarGrid" class="calendar-grid" role="grid" aria-label="月間カレンダー"></div>
+        </section>
+
+        <section class="panel day-detail-panel" aria-labelledby="day-detail-heading">
+          <h2 id="day-detail-heading" class="panel__title">日別の勉強履歴</h2>
+          <div class="day-detail__header">
+            <p id="dayDetailDate" class="day-detail__date"></p>
+            <p id="dayDetailTotal" class="day-detail__total"></p>
+          </div>
+          <ul id="sessionList" class="session-list"></ul>
+          <p id="emptyDayMessage" class="empty-message" hidden>この日の記録はありません</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

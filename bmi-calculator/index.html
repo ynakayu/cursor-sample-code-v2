@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMIチェッカー</title>
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+  <div class="app">
+    <h1>BMIチェッカー</h1>
+
+    <label for="heightCm">身長（cm）</label>
+    <input
+      type="text"
+      id="heightCm"
+      inputmode="decimal"
+      placeholder="例: 170"
+      autocomplete="off"
+    >
+
+    <label for="weightKg">体重（kg）</label>
+    <input
+      type="text"
+      id="weightKg"
+      inputmode="decimal"
+      placeholder="例: 65"
+      autocomplete="off"
+    >
+
+    <button type="button" id="calculateButton" class="calculate-button">計算する</button>
+
+    <div class="result-area" id="resultArea">
+      <p>BMIがここに表示されます</p>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
